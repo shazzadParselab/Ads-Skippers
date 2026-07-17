@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>YouTube Ad Skipper</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <header class="header">
+      <img src="../icons/icon32.png" alt="" class="logo" />
+      <h1 class="title">Ad Skipper</h1>
+    </header>
+
+    <div class="row">
+      <span class="row-label">Auto-skip ads</span>
+      <label class="switch">
+        <input type="checkbox" id="toggle" />
+        <span class="slider"></span>
+      </label>
+    </div>
+
+    <div class="stats">
+      <span class="stats-count" id="count">0</span>
+      <span class="stats-label">ads skipped</span>
+    </div>
+
+    <button type="button" class="reset" id="reset">Reset counter</button>
+
+    <footer class="footer">Works on youtube.com/watch pages</footer>
+  </body>
+  <script src="popup.js"></script>
+</html>
