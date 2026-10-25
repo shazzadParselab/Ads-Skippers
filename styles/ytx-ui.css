@@ -1,0 +1,57 @@
+/* Our own UI only. Always injected as a plain content-script stylesheet, so it
+ * does not depend on the service worker's dynamic registration. It styles
+ * nothing belonging to YouTube — the rules are inert until a feature creates
+ * one of these elements. */
+
+/* The download button lives here rather than in the conditional download.css
+ * on purpose: it is the entry point to that whole feature, so it must not be
+ * possible for a CSS-registration hiccup to make it invisible. Sizing is
+ * explicit for the same reason — an <svg width="100%"> inside a button with no
+ * dimensions of its own collapses to zero width. */
+.ytx-dl-button {
+  display: inline-block !important;
+  position: relative;
+  width: 48px;
+  height: 100%;
+  padding: 0;
+  border: none;
+  background: transparent;
+  vertical-align: top;
+  opacity: 0.9;
+  cursor: pointer;
+}
+
+.ytx-dl-button:hover { opacity: 1; }
+
+.ytx-dl-button svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* Transient toast, anchored inside the player (SponsorBlock, hotkeys). */
+.ytx-toast {
+  position: absolute;
+  left: 16px;
+  bottom: 72px;
+  z-index: 2000;
+  padding: 8px 14px;
+  border-radius: 6px;
+  background: rgba(15, 15, 15, 0.92);
+  color: #fff;
+  font-family: "YouTube Sans", Roboto, Arial, sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1;
+  pointer-events: none;
+  animation: ytx-toast-in 160ms ease-out, ytx-toast-out 300ms ease-in 2.3s forwards;
+}
+
+@keyframes ytx-toast-in {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: none; }
+}
+
+@keyframes ytx-toast-out {
+  to { opacity: 0; }
+}

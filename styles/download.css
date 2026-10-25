@@ -1,0 +1,145 @@
+/* Download format panel. Registered only while `download` is on.
+ * Lives inside .html5-video-player so it survives fullscreen.
+ * The BUTTON is styled in styles/ytx-ui.css instead — see the note there. */
+
+.ytx-dl-panel {
+  position: absolute;
+  right: 12px;
+  bottom: 60px;
+  z-index: 2100;
+  width: 296px;
+  max-height: 66%;
+  overflow-y: auto;
+  padding: 10px 0 8px;
+  border-radius: 10px;
+  background: rgba(28, 28, 28, 0.96);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.6);
+  color: #f1f1f1;
+  font-family: "YouTube Sans", Roboto, Arial, sans-serif;
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.ytx-dl-title {
+  padding: 0 14px 8px;
+  border-bottom: 1px solid #3a3a3a;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.ytx-dl-section {
+  padding: 12px 14px 4px;
+  color: #9a9a9a;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* ── Format rows ──────────────────────────────────── */
+.ytx-dl-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 7px 14px;
+  border: none;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.ytx-dl-row:hover { background: rgba(255, 255, 255, 0.1); }
+
+.ytx-dl-quality { flex: 1; font-weight: 500; }
+
+.ytx-dl-ext {
+  padding: 1px 6px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.12);
+  color: #cfcfcf;
+  font-size: 11px;
+  text-transform: uppercase;
+}
+
+.ytx-dl-size {
+  min-width: 62px;
+  color: #9a9a9a;
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+}
+
+/* ── Notes ────────────────────────────────────────── */
+.ytx-dl-note {
+  padding: 10px 14px 4px;
+  color: #9a9a9a;
+  font-size: 12px;
+}
+
+.ytx-dl-warn { color: #ffab00; }
+
+/* ── Progress ─────────────────────────────────────── */
+.ytx-dl-name {
+  padding: 10px 14px 6px;
+  overflow-wrap: anywhere;
+  font-size: 12px;
+}
+
+.ytx-dl-bar {
+  height: 4px;
+  margin: 0 14px;
+  border-radius: 2px;
+  background: rgba(255, 255, 255, 0.15);
+  overflow: hidden;
+}
+
+.ytx-dl-bar-fill {
+  width: 0;
+  height: 100%;
+  background: #ff0033;
+  transition: width 180ms linear;
+}
+
+.ytx-dl-status {
+  padding: 8px 14px 0;
+  color: #9a9a9a;
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+}
+
+.ytx-dl-error { color: #ff6b6b; }
+
+.ytx-dl-command {
+  display: block;
+  width: calc(100% - 28px);
+  margin: 10px 14px 0;
+  padding: 7px 9px;
+  border: 1px solid #3a3a3a;
+  border-radius: 6px;
+  background: #101010;
+  color: #f1f1f1;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 11px;
+  line-height: 1.4;
+  resize: vertical;
+}
+
+/* ── Buttons ──────────────────────────────────────── */
+.ytx-dl-action,
+.ytx-dl-copy {
+  margin: 10px 14px 2px;
+  padding: 6px 13px;
+  border: 1px solid #3a3a3a;
+  border-radius: 15px;
+  background: transparent;
+  color: #f1f1f1;
+  font: inherit;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.ytx-dl-action:hover,
+.ytx-dl-copy:hover { background: rgba(255, 255, 255, 0.1); }

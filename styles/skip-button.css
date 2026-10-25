@@ -1,0 +1,13 @@
+/* YouTube ships the skip button with inline display:none / opacity:.5 until it
+ * decides you may use it. Forcing it interactive is what lets us click it.
+ * Registered only while `clickSkipButtons` is on. */
+.ytp-skip-ad-button,
+.ytp-ad-skip-button-modern,
+.ytp-ad-skip-button,
+.ytp-ad-skip-button-slot,
+.ytp-ad-skip-button-container,
+.videoAdUiSkipButton {
+  display: block !important;
+  opacity: 1 !important;
+  cursor: pointer !important;
+}

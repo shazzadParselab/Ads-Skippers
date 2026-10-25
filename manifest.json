@@ -1,9 +1,10 @@
 {
   "manifest_version": 3,
   "name": "YouTube Ad Skipper",
-  "version": "2.0.0",
-  "description": "Automatically clicks the 'Skip Ad' button on YouTube watch pages.",
+  "version": "3.2.0",
+  "description": "Skips YouTube video ads, hides page ads, blocks sponsor segments, downloads videos in parallel, and adds player and distraction-free controls.",
   "author": "https://github.com/shazzadkhan1234",
+  "minimum_chrome_version": "111",
   "icons": {
     "16": "icons/icon16.png",
     "32": "icons/icon32.png",
@@ -11,17 +12,51 @@
     "128": "icons/icon128.png"
   },
   "permissions": [
-    "storage"
+    "storage",
+    "scripting"
   ],
+  "host_permissions": [
+    "*://*.youtube.com/*",
+    "https://sponsor.ajay.app/*"
+  ],
+  "background": {
+    "service_worker": "src/background.js"
+  },
   "content_scripts": [
     {
       "matches": [
         "*://*.youtube.com/*"
       ],
-      "js": [
-        "content.js"
+      "run_at": "document_start",
+      "css": [
+        "styles/ytx-ui.css"
       ],
-      "run_at": "document_idle"
+      "js": [
+        "src/core/ns.js",
+        "src/core/log.js",
+        "src/core/defaults.js",
+        "src/core/settings.js",
+        "src/core/yt.js",
+        "src/core/registry.js",
+        "src/core/download-engine.js",
+        "src/features/adblock.js",
+        "src/features/antiadblock.js",
+        "src/features/sponsorblock.js",
+        "src/features/player.js",
+        "src/features/distraction.js",
+        "src/features/download.js",
+        "src/content.js"
+      ]
+    },
+    {
+      "matches": [
+        "*://*.youtube.com/*"
+      ],
+      "run_at": "document_start",
+      "world": "MAIN",
+      "js": [
+        "src/main-world.js"
+      ]
     }
   ],
   "action": {
@@ -33,5 +68,9 @@
       "48": "icons/icon48.png",
       "128": "icons/icon128.png"
     }
+  },
+  "options_ui": {
+    "page": "options/options.html",
+    "open_in_tab": true
   }
 }

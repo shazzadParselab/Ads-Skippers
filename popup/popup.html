@@ -2,7 +2,6 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>YouTube Ad Skipper</title>
     <link rel="stylesheet" href="popup.css" />
   </head>
@@ -10,24 +9,46 @@
     <header class="header">
       <img src="../icons/icon32.png" alt="" class="logo" />
       <h1 class="title">Ad Skipper</h1>
-    </header>
-
-    <div class="row">
-      <span class="row-label">Auto-skip ads</span>
-      <label class="switch">
-        <input type="checkbox" id="toggle" />
+      <label class="switch" title="Turn everything on or off">
+        <input type="checkbox" id="enabled" />
         <span class="slider"></span>
       </label>
-    </div>
+    </header>
 
-    <div class="stats">
-      <span class="stats-count" id="count">0</span>
-      <span class="stats-label">ads skipped</span>
-    </div>
+    <section class="stats">
+      <div class="stat">
+        <span class="stat-value" data-stat="skipCount">0</span>
+        <span class="stat-label">ads</span>
+      </div>
+      <div class="stat">
+        <span class="stat-value" data-stat="segmentCount">0</span>
+        <span class="stat-label">segments</span>
+      </div>
+      <div class="stat">
+        <span class="stat-value" data-stat="timeSaved">0m</span>
+        <span class="stat-label">saved</span>
+      </div>
+    </section>
 
-    <button type="button" class="reset" id="reset">Reset counter</button>
+    <section class="quick" id="quick">
+      <!-- rows injected by popup.js from the QUICK list -->
+    </section>
 
-    <footer class="footer">Works on youtube.com/watch pages</footer>
+    <section class="download" id="download">
+      <button type="button" class="download-toggle" id="download-toggle">
+        <span class="download-icon" aria-hidden="true">&#8595;</span>
+        <span id="download-toggle-label">Download this video</span>
+      </button>
+      <div class="download-body" id="download-body" hidden></div>
+    </section>
+
+    <footer class="footer">
+      <button type="button" class="link" id="reset">Reset stats</button>
+      <button type="button" class="link primary" id="options">All settings</button>
+    </footer>
+
+    <script src="../src/core/defaults.js"></script>
+    <script src="popup.js"></script>
+    <script src="download-ui.js"></script>
   </body>
-  <script src="popup.js"></script>
 </html>

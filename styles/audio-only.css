@@ -1,0 +1,11 @@
+/* Audio-only: blank the picture but keep the player box and its controls.
+ * Quality is separately forced to 144p in src/features/player.js — that is
+ * what actually saves the bandwidth; this only removes the distraction. */
+#movie_player video.html5-main-video,
+ytd-player video.html5-main-video {
+  opacity: 0 !important;
+}
+
+#movie_player {
+  background: #000 !important;
+}

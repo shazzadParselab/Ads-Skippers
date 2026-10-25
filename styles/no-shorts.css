@@ -1,0 +1,12 @@
+/* Remove Shorts everywhere: home shelves, search results, sidebar entries. */
+ytd-rich-shelf-renderer[is-shorts],
+ytd-reel-shelf-renderer,
+ytd-rich-section-renderer:has(ytd-rich-shelf-renderer[is-shorts]),
+grid-shorts-renderer,
+ytm-shorts-lockup-view-model,
+ytd-video-renderer:has(a[href^="/shorts/"]),
+ytd-rich-item-renderer:has(a[href^="/shorts/"]),
+ytd-guide-entry-renderer:has(a[title="Shorts"]),
+ytd-mini-guide-entry-renderer[aria-label="Shorts"] {
+  display: none !important;
+}

@@ -1,0 +1,6 @@
+/* The "Up next" / recommendations list on watch pages.
+ * Deliberately does NOT hide all of #secondary: that column also holds the
+ * playlist panel, live chat, and donation shelf, which are not recommendations. */
+ytd-watch-next-secondary-results-renderer {
+  display: none !important;
+}

@@ -1,0 +1,9 @@
+/* End-screen cards, the pause overlay's suggestions, and legacy annotations. */
+.ytp-ce-element,
+.ytp-endscreen-content,
+.ytp-pause-overlay,
+.ytp-pause-overlay-container,
+.iv-branding,
+.annotation {
+  display: none !important;
+}
